@@ -1,0 +1,32 @@
+1. Diseño del proyecto
+https://getbootstrap.com/ #Ingresamos a bustrap
+Dirigirse a ejemplos
+
+2. Para configurar y utilizar una BD en MySql
+* pip install mysqlclient #instalar en cualquier ubicación
+* python -m pip install Pillow #Para utilizar imágenes
+* pip install pymysql #Instalar la libreria 
+* DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'nombreDB',
+            'USER': 'root',
+            'PASSWORD': 'root',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
+3. Generar los modelos
+4. utilizar el makemigrations y el migrate
+5. Crear un super usuario
+python manage.py createsuperuser
+5. Asignar en el admin de la aplicacion servicios
+from django.contrib import admin
+from servicios.models import Servicio
+
+# Register your models here.
+
+class servicioAdmin(admin.ModelAdmin):
+    readonly_fields=('created','updated')
+admin.site.register(Servicio,servicioAdmin)

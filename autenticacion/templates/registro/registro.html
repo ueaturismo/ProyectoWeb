@@ -1,0 +1,32 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+
+
+{% load bootstrap5 %}
+
+{% block contend %}
+
+<form method="post" style="color: white;" class="form"> 
+    {% csrf_token %}
+    <div style="width: 50%; margin: auto;">
+        {% if messages %}
+            {% for message in messages %}
+            {% if message.tags %}
+            <span class="alert alert-{{message.tags}}">
+                {{ message }}
+            </span>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        </br></br>
+        {% bootstrap_form form %}    
+        {% buttons %}
+        <button type="submit" class="btn btn-success">Regístrate</button>
+        {% endbuttons %}
+    </div>
+    
+</form>
+
+
+
+{% endblock %}
